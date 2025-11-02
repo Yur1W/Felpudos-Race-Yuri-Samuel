@@ -5,7 +5,7 @@
 This project aims to demonstrate the utilities of the Paralax Sistem  in Unity 2022, this sistem can be essential for the feeling of depth and polish in a game, proving to be an essencial asset in a Game Developer`s toolkit.
 
 ## What is the Paralax Sistem?
-
+A paralax system is a visual technique used in 2D games which utilizes Scripts and clever asset positioning to create a sense of depth and motion in a game
 
 ## Implementation in Project
 In this project the Unity Paralax System was implemented in 2 main ways:
@@ -25,9 +25,10 @@ In this project the Unity Paralax System was implemented in 2 main ways:
 
 ## Links
 [Projeto no Play Unity]()
+[Gameplay Video]()
 
 ## Colaborators
-[Samuel Figueredo] ()
+[Samuel Figueredo](https://github.com/DjTarma)
 
 ## Advisor
 

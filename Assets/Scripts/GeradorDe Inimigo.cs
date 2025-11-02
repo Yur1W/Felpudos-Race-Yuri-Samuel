@@ -7,12 +7,13 @@ public class GeradorDeInimigo : MonoBehaviour
     // Prefab do inimigo (arraste no Inspector)
     public GameObject LesmaBasicaPrefab;
     public GameObject LesmaBarrilPrefab;
+    public GameObject LesmaAmarelaPrefab;
 
     // Intervalo entre spawns (segundos)
     public float intervalo = 1f;
 
     // Limites de spawn no cenário
-    public float limiteX = 8f;
+    public float limiteX = 9.5f;
     public float limiteY = 4f;
 
     // Velocidade de movimento dos inimigos
@@ -29,7 +30,7 @@ public class GeradorDeInimigo : MonoBehaviour
     }
     void Update()
     {
-        Enemy = Random.Range(1, 3);       
+        Enemy = Random.Range(1, 4);       
     }
 
     void GerarInimigo()
@@ -47,6 +48,9 @@ public class GeradorDeInimigo : MonoBehaviour
                 break;
             case 2:
                 Instantiate(LesmaBarrilPrefab, posicaoAleatoria, Quaternion.identity);
+                break;
+            case 3:
+                Instantiate(LesmaAmarelaPrefab, new Vector2(9.5f,-2.2f), Quaternion.identity);
                 break;
         }
     }

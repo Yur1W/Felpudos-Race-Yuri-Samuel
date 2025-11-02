@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
     public enum PlayerState {Running, Jumping, Falling, Crouching, Hurt}
     public PlayerState playerState = PlayerState.Running;
-    public enum PlayerHpState { Hurt, Normal, Invincible }
+    public enum PlayerHpState { Hurt, Normal, Invincible}
     public PlayerHpState playerHpState = PlayerHpState.Normal;
 
     void Start()

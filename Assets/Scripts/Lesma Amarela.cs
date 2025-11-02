@@ -10,10 +10,10 @@ public class LesmaAmarela : MonoBehaviour {
   [SerializeField]
   float timerDuration;
   float timer;
-  float velocidade = 2f;
+  float velocidade = 4f;
   float limiteDestruicaoX = -12f;
   bool jumpTime = true;
-  Vector2 forcaImpulso = new Vector2(0, 600f);
+  Vector2 forcaImpulso = new Vector2(0, 580f);
   Vector2 gravityDirection = Vector2.down;
   float gravity = 9.8f;
 
@@ -23,10 +23,11 @@ public class LesmaAmarela : MonoBehaviour {
 
   void Update()
   {
-    
+    Mover();
     Timer();
     if (jumpTime)
-    {
+    { 
+      corpoLesma.velocity = Vector2.zero;
       corpoLesma.AddForce(forcaImpulso);
       jumpTime = false;
 
@@ -40,7 +41,7 @@ public class LesmaAmarela : MonoBehaviour {
     }
     void Timer()
   {
-    timerDuration = Random.Range(1.40f, 2.50f);
+    timerDuration = Random.Range(1.20f, 2f);
     timer += Time.deltaTime;
     if (timer >= timerDuration)
     {

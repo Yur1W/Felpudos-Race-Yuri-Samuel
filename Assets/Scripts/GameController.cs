@@ -48,6 +48,25 @@ public class GameController : MonoBehaviour
         isGameOver = true;
         player.KillPlayer();
         ui.ShowGameOver(true);
-    
+
+    }
+    public void AddToken()
+    {
+        if (isGameOver) return;
+
+        score++;
+        ui.UpdateScore(score);
+
+        if (score >= 5)
+        {
+            Victory();
+        }
+    }
+     void Victory()
+    {
+        isVictory = true;
+        player.KillPlayer();
+        ui.ShowVictory(true);
     }
 }
+

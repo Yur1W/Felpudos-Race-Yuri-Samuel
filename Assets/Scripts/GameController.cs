@@ -36,13 +36,6 @@ public class GameController : MonoBehaviour
         
     }
 
-    public void TakeDamage()
-    {
-        if (isGameOver) return;
-
-        lives--;
-        score = 0;
-    }
     public void GameOver()
     {
         isGameOver = true;
@@ -61,6 +54,10 @@ public class GameController : MonoBehaviour
         {
             Victory();
         }
+    }
+    public void AddLife()
+    {
+        
     }
      void Victory()
     {

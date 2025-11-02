@@ -2,21 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GeradorDeInimigo : MonoBehaviour
+public class GeradorDeToken : MonoBehaviour
 {
     // Prefab do inimigo (arraste no Inspector)
-    public GameObject LesmaBasicaPrefab;
-    public GameObject LesmaBarrilPrefab;
-    public GameObject LesmaAmarelaPrefab;
+    public GameObject Tomate;
+    public GameObject Banana;
+    public GameObject Melancia;
 
     // Intervalo entre spawns (segundos)
     public float intervalo = 1f;
 
     // Limites de spawn no cenário
     public float limiteX = 9.5f;
-    public float limiteY = -2.2f;
+    public float limiteY = 4f;
 
     // Velocidade de movimento dos inimigos
+    public float velocidade = 3f;
     int Enemy;
 
     // Limite X para destruir o inimigo ao sair da tela
@@ -36,20 +37,20 @@ public class GeradorDeInimigo : MonoBehaviour
     {
         // Define posição de spawn (à direita da tela)
         float x = limiteX;
-        float y = limiteY;
+        float y = Random.Range(-1.5f, -3.80f );
         Vector2 posicaoAleatoria = new Vector2(x, y);
 
         // Instancia o inimigo
         switch (Enemy)
         {
             case 1:
-                Instantiate(LesmaBasicaPrefab, posicaoAleatoria, Quaternion.identity);
+                Instantiate(Tomate, posicaoAleatoria, Quaternion.identity);
                 break;
             case 2:
-                Instantiate(LesmaBarrilPrefab, posicaoAleatoria, Quaternion.identity);
+                Instantiate(Banana, posicaoAleatoria, Quaternion.identity);
                 break;
             case 3:
-                Instantiate(LesmaAmarelaPrefab, new Vector2(9.5f,-2.2f), Quaternion.identity);
+                Instantiate(Melancia, posicaoAleatoria, Quaternion.identity);
                 break;
         }
     }

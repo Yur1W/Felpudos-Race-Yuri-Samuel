@@ -49,7 +49,10 @@ public class PlayerMovement : MonoBehaviour
 
 
     private void FixedUpdate()
-    {
+    {   
+         // input catch
+        jumpInput = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow);
+        crouchInput = Input.GetKey(KeyCode.LeftShift);
         // direction
         horizontalInput = 0;
 
@@ -70,16 +73,13 @@ public class PlayerMovement : MonoBehaviour
         {
             case PlayerHpState.Hurt: TakeDamage(); break;
             case PlayerHpState.Normal: break;
-            case PlayerHpState.Invincible: break;
+            case PlayerHpState.Invincible: Invicibility(); break;
             default: break;
         }
     }
     private void Update()
     {   
-        // input catch
-        jumpInput = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow);
-        crouchInput = Input.GetKey(KeyCode.LeftShift);
-
+    
         Debug.DrawRay(transform.position, Vector2.down * 1.1f, Color.red);
         GroundCheck();
     }
@@ -97,7 +97,27 @@ public class PlayerMovement : MonoBehaviour
         {
             gc.GameOver();
         }
-       
+        else
+        {
+            playerHpState = PlayerHpState.Invincible;
+        }
+
+    }
+    IEnumerator InvicibilityDuration()
+    {
+        yield return new WaitForSeconds(2f);
+        playerHpState = PlayerHpState.Normal;
+    }
+    private void Invicibility()
+    {
+        StartCoroutine(InvicibilityDuration());
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {   
+            playerHpState = PlayerHpState.Hurt;
+        }
     }
 
     private void Jump()

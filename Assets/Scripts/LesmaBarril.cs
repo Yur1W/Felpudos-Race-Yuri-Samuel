@@ -6,13 +6,13 @@ public class LesmaBarill : MonoBehaviour
 {
     [Header("Configurações de Movimento")]
     [SerializeField]
-    float velocidade = 8f;
+    protected float velocidade = 8f;
     [SerializeField]
-    float jumpForce = 5f;
-    float limiteDestruicaoX = -13f;
-    bool isGrounded;
-    Rigidbody2D rb;
-    Animator animator;
+    protected float jumpForce = 5f;
+    protected float limiteDestruicaoX = -13f;
+    protected bool isGrounded;
+    protected Rigidbody2D rb;
+    protected Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,15 +36,16 @@ public class LesmaBarill : MonoBehaviour
 
         }
     }
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player") && isGrounded)
-        {   
-            animator.Play("Attack");
-            rb.velocity = (Vector2.up * jumpForce);
-        }
+    public void Attack()
+    {   
+        rb.velocity = (Vector2.up * jumpForce);
     }
-     private void GroundCheck()
+    void OnCollisionEnter2D(Collision2D collision)
+    {    animator.Play("Attack");
+        if (collision.gameObject.CompareTag("Player")) Destroy(gameObject);
+        
+    }
+    private void GroundCheck()
     {
         if (Physics2D.Raycast(transform.position, Vector2.down, 1.1f, LayerMask.GetMask("Ground")))
         { isGrounded = true; }

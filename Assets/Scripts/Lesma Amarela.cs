@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LesmaAmarela : MonoBehaviour {
-
-  bool comecou;
-  bool acabou;
+public class LesmaAmarela : MonoBehaviour 
+{
   Rigidbody2D corpoLesma;
   [SerializeField]
   float timerDuration;
@@ -17,7 +15,8 @@ public class LesmaAmarela : MonoBehaviour {
   Vector2 gravityDirection = Vector2.down;
   float gravity = 9.8f;
 
-  void Start () { 
+  void Start () 
+  { 
     corpoLesma = GetComponent<Rigidbody2D> ();
   }
 
@@ -50,13 +49,17 @@ public class LesmaAmarela : MonoBehaviour {
     }
   }
   void Mover()
-    {    
-            transform.Translate(Vector2.left * velocidade * Time.deltaTime);
+  {
+    transform.Translate(Vector2.left * velocidade * Time.deltaTime);
 
-            if (transform.position.x < limiteDestruicaoX)
-            {
-                Destroy(gameObject);
-              
-            }
+    if (transform.position.x < limiteDestruicaoX)
+    {
+      Destroy(gameObject);
+
+    }
+  }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+    if (collision.gameObject.CompareTag("Player")) { Destroy(gameObject); }
     }
 }

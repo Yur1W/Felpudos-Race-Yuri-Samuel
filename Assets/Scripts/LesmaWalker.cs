@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LesmaBasica : MonoBehaviour
+public class LesmaWalker : MonoBehaviour
 {
+    [Header("Moverment")]
+    [SerializeField]
     float velocidade = 2f;
     float limiteDestruicaoX = -12f;
     // Start is called before the first frame update

@@ -1,0 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.Callbacks;
+using UnityEngine;
+
+public class Felpudo : MonoBehaviour
+{
+    public float input;
+    Rigidbody2D rb;
+    float speed = 2f;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        input = 0;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        rb.velocity = new Vector2(input * speed, rb.velocity.y);
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Carro"))
+        {
+            Destroy(gameObject);
+        }
+    }
+}

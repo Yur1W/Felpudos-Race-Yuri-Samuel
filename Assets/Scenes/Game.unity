@@ -2347,6 +2347,69 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &640806482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 640806484}
+  - component: {fileID: 640806483}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &640806483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640806482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1755186427
+      Data2: 1217400949
+      Data3: 716607415
+      Data4: 1826330616
+    Path: event:/Music/Level 1
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &640806484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640806482}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.9772387, y: -1.8438408, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &659669282
 GameObject:
   m_ObjectHideFlags: 0
@@ -3910,10 +3973,10 @@ GameObject:
   - component: {fileID: 1514877555}
   - component: {fileID: 1514877554}
   - component: {fileID: 1514877557}
-  - component: {fileID: 1514877558}
   - component: {fileID: 1514877552}
   - component: {fileID: 1514877553}
   - component: {fileID: 1514877556}
+  - component: {fileID: 1514877558}
   m_Layer: 0
   m_Name: Felpudo
   m_TagString: Player
@@ -4124,8 +4187,8 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!70 &1514877558
-CapsuleCollider2D:
+--- !u!68 &1514877558
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4156,9 +4219,42 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.091069706, y: -0.78772396}
-  m_Size: {x: 3.4666495, y: 3.4666533}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0.1
+  m_Points:
+  - {x: -1.0373394, y: -2.079052}
+  - {x: -1.2940304, y: -1.7517962}
+  - {x: -1.3818314, y: -1.1302431}
+  - {x: -1.2164503, y: -1.1153424}
+  - {x: -1.2604617, y: -0.73420167}
+  - {x: -1.5459917, y: -0.7502502}
+  - {x: -1.6346418, y: -0.58948416}
+  - {x: -1.1132224, y: -0.33676565}
+  - {x: -0.6987281, y: -0.29131842}
+  - {x: -0.6374243, y: 0.42662078}
+  - {x: -0.29202121, y: 0.70557666}
+  - {x: 0.3482327, y: 0.72832733}
+  - {x: 0.6357472, y: 0.47277302}
+  - {x: 0.65535176, y: -0.117556155}
+  - {x: 0.551313, y: -0.3255381}
+  - {x: 0.6121054, y: -0.63206273}
+  - {x: 1.1097004, y: -0.7291293}
+  - {x: 1.4344233, y: -0.98962384}
+  - {x: 1.5368162, y: -1.3514631}
+  - {x: 1.5558778, y: -1.7570634}
+  - {x: 1.1973834, y: -1.7783847}
+  - {x: 1.1124874, y: -2.008503}
+  - {x: 0.778874, y: -2.1386914}
+  - {x: 0.48008832, y: -2.020907}
+  - {x: 0.45864856, y: -1.7683368}
+  - {x: -0.39640427, y: -1.7761803}
+  - {x: -0.503295, y: -1.9991386}
+  - {x: -0.69507617, y: -2.1583169}
+  - {x: -1.0287956, y: -2.095113}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1515260220
 GameObject:
   m_ObjectHideFlags: 0
@@ -6099,3 +6195,4 @@ SceneRoots:
   - {fileID: 1435965278077811659}
   - {fileID: 6173282730967426848}
   - {fileID: 8807414703482553621}
+  - {fileID: 640806484}

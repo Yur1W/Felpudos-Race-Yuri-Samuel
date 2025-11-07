@@ -612,7 +612,7 @@ MonoBehaviour:
   sourceProjectPath: ../../Uneb/Projeto MV/FMOD/Nova pasta/Felpudos Race.fspro
   sourceBankPath: ../../Uneb/Projeto MV/FMOD/Nova pasta/Build
   sourceBankPathUnformatted: 
-  BankRefreshCooldown: 5
+  BankRefreshCooldown: 1
   ShowBankRefreshWindow: 1
   AutomaticEventLoading: 1
   BankLoadType: 0
@@ -634,7 +634,10 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master
-  Banks: []
+  Banks:
+  - OST
+  - SFXs
+  - VOs
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0

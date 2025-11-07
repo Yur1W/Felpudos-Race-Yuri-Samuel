@@ -24,7 +24,7 @@ In this project the Unity Paralax System was implemented in 2 main ways:
 - [Guia lab10 Felpudo Race](https://github.com/muriloboratto/assets-lab10-unity)
 
 ## Links
-[Projeto no Play Unity]()
+[Projeto no Play Unity](https://play.unity.com/en/games/97c5e4e5-0ee8-4ce3-a926-a34d7fbbc24c/webgl-builds)
 [Gameplay Video]()
 
 ## Colaborators

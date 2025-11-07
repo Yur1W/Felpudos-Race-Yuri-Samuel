@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Bullet
+  - Enemy
+  - Particles
+  - Fofura
+  - Uruca
+  - Carro
   layers:
   - Default
   - TransparentFX

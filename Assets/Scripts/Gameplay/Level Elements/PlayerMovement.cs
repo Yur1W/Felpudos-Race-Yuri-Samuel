@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     // Components
     Rigidbody2D rb;
     SpriteRenderer sprite;
-    Animator animator;
+    public Animator animator;
     public GameController gc;
     // Player Stats
     [Header("Player Stats")]
@@ -80,7 +80,6 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {   
-    
         Debug.DrawRay(transform.position, Vector2.down * 1.1f, Color.red);
         GroundCheck();
     }
@@ -129,7 +128,6 @@ public class PlayerMovement : MonoBehaviour
     {       
             animator.Play("Pulando");
             rb.velocity = Vector2.up * jumpForce;
-            isGrounded = false;
             
             playerState = PlayerState.Falling;
     }

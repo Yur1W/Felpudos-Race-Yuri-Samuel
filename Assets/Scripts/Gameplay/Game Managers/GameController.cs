@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
     public UiManager ui;
     public PlayerMovement playerCode;
     [SerializeField]
+    GameObject player;
+    [SerializeField]
     GameObject spawners;
     [SerializeField]
     GameObject audioManager;
@@ -34,6 +36,7 @@ public class GameController : MonoBehaviour
     void Start()
     {   lives = 3;
         score = 0;
+        timer = 0f;
         ui.UpdateLives(lives);
         ui.UpdateScore(score);
         ui.UpdateDistance(distance);
@@ -70,6 +73,10 @@ public class GameController : MonoBehaviour
         isGameOver = true;
         playerCode.enabled = false;
         Destroy(spawners);
+        Destroy(audioManager);
+        playerCode.animator.StopPlayback();
+        Background.SetActive(true);
+        movingBackgrounds.SetActive(false);
         ui.ShowGameOver(true);
 
     }
@@ -98,12 +105,18 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         fofura.SetActive(true);
+        StartCoroutine(WaitWaitCoroutine());
     }
     IEnumerator WaitCoroutine()
     {
         yield return new WaitForSeconds(1f);
         uruca.SetActive(true);
         StartCoroutine(FofuraCoroutine());
+    }
+    IEnumerator WaitWaitCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        playerCode.animator.Play("OnFoot");
     }
 }
 

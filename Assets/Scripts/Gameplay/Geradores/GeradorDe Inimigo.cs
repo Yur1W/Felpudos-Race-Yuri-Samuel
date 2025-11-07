@@ -10,7 +10,7 @@ public class GeradorDeInimigo : MonoBehaviour
     public GameObject LesmaAmarelaPrefab;
 
     // Intervalo entre spawns (segundos)
-    public float intervalo = 1f;
+    public float intervalo = 1.3f;
 
     // Limites de spawn no cenário
     public float limiteX = 9.5f;

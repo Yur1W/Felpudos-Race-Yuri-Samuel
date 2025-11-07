@@ -10,7 +10,7 @@ public class GeradorDeToken : MonoBehaviour
     public GameObject Melancia;
 
     // Intervalo entre spawns (segundos)
-    public float intervalo = 1f;
+    public float intervalo = 3f;
 
     // Limites de spawn no cenário
     public float limiteX = 9.5f;

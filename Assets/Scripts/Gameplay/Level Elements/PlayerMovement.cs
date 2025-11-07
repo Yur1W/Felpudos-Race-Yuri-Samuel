@@ -3,7 +3,8 @@ using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 
 public class PlayerMovement : MonoBehaviour
-{   // Input Settings
+{   
+    // Input Settings
     [Header("Input Settings")]
     float horizontalInput;
     bool jumpInput;
@@ -20,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Components
     Rigidbody2D rb;
-    SpriteRenderer spriteRenderer;
+    SpriteRenderer sprite;
     Animator animator;
     public GameController gc;
     // Player Stats
@@ -43,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         originalScale = transform.localScale;
         // get components
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
 
@@ -57,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = 0;
 
         // sprite direction
-        spriteRenderer.flipX = horizontalInput > 0;
+        sprite.flipX = horizontalInput > 0;
         // movemnent
         rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
         // State Machine
@@ -85,15 +86,16 @@ public class PlayerMovement : MonoBehaviour
     }
     void TakeDamage()
     {
-        Debug.Log("Player took damage! Vida : " + gc.lives);
+        Debug.Log("Player took damage! Vida : " + GameController.lives);
 
         StartCoroutine(BlinkEffect());
 
-        if (gc.isGameOver) return;
 
-        gc.lives--;
-        gc.score = 0;
-        if (gc.lives <= 0)
+        GameController.lives--;
+        GameController.score = 0;
+        gc.ui.UpdateLives(GameController.lives);
+        gc.ui.UpdateScore(GameController.score);
+        if (GameController.lives <= 0)
         {
             gc.GameOver();
         }
@@ -104,20 +106,23 @@ public class PlayerMovement : MonoBehaviour
 
     }
     IEnumerator InvicibilityDuration()
-    {
-        yield return new WaitForSeconds(2f);
+    {   
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        yield return new WaitForSeconds(1f);
+        GetComponent<CapsuleCollider2D>().enabled = true;   
         playerHpState = PlayerHpState.Normal;
     }
     private void Invicibility()
     {
         StartCoroutine(InvicibilityDuration());
     }
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {   
+       if (collision.CompareTag("Enemy"))
+        {
             playerHpState = PlayerHpState.Hurt;
-        }
+            Destroy(collision.gameObject);
+        } 
     }
 
     private void Jump()
@@ -133,10 +138,15 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.Play("Abaixando");
         transform.localScale = new Vector3(originalScale.x, originalScale.y * crouchScale, originalScale.z);
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = true;
 
-        transform.localScale = originalScale;
+        
         if (!crouchInput)
         {
+            transform.localScale = originalScale;
+            GetComponent<CapsuleCollider2D>().enabled = true;
+            GetComponent<BoxCollider2D>().enabled = false;
             playerState = PlayerState.Running;
         }
     }
@@ -167,9 +177,9 @@ public class PlayerMovement : MonoBehaviour
     }
     private IEnumerator BlinkEffect()
     {
-        spriteRenderer.enabled = false;
+        sprite.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        spriteRenderer.enabled = true;
+        sprite.color = Color.white;
         yield return new WaitForSeconds(0.1f);
 
     }

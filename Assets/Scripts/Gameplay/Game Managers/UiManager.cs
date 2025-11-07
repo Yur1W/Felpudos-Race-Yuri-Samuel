@@ -19,12 +19,12 @@ public class UiManager : MonoBehaviour
 
     public void UpdateScore(int score)
     {
-        scoreText.text = "Tokens: " + score + " / 5";
+        scoreText.text = "Score: " + score;
     }
 
     public void UpdateDistance(float distance)
     {
-        distanceText.text = distance.ToString("000000") + " m";
+        distanceText.text = distance.ToString("0000") + " m";
     }
 
     public void ShowGameOver(bool show)

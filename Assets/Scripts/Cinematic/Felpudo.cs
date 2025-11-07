@@ -7,6 +7,9 @@ public class Felpudo : MonoBehaviour
 {
     public float input;
     Rigidbody2D rb;
+    Animator anim;
+    [SerializeField]
+    GameObject player;
     float speed = 2f;
 
     // Start is called before the first frame update
@@ -14,6 +17,14 @@ public class Felpudo : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         input = 0;
+        anim = GetComponent<Animator>();
+        anim.Play("OnFoot");
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            anim.Play("OnFoot");
+            input = 1;
+        }
+        
     }
 
     // Update is called once per frame
@@ -25,7 +36,15 @@ public class Felpudo : MonoBehaviour
     {
         if (collision.CompareTag("Carro"))
         {
-            Destroy(gameObject);
+            Destroy(collision.gameObject);
+            StartGame();
         }
+    }
+
+    void StartGame()
+    {  
+        player.gameObject.SetActive(true);
+        GameController.GameStarted = true;
+        Destroy(gameObject);
     }
 }

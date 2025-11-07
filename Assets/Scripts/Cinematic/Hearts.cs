@@ -19,10 +19,20 @@ public class Hearts : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D collision)
     {
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            if (collision.CompareTag("Fofura"))
+            {
+                felpudo.input = 1;
+                Destroy(gameObject);
+            }
+        }
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.CompareTag("Fofura"))
         {
-            felpudo.input = 1;
-            Destroy(gameObject);
+            GetComponent<ParticleSystem>().Play();
         }
     }
 }

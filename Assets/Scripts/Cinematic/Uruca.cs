@@ -15,6 +15,10 @@ public class Uruca : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         input = -1;
+        if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            speed = 8f;
+        }
     }
 
 
@@ -22,7 +26,7 @@ public class Uruca : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2(input * speed, rb.velocity.y);
-        if (transform.position.x < -10f)
+        if (transform.position.x > 50f)
         {
             Destroy(gameObject);
         }
@@ -33,6 +37,10 @@ public class Uruca : MonoBehaviour
         {
             input = 1;
             sprite.flipX = true;
+        }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            rb.AddForce(new Vector2(800f, 500f));
         }
     }
 }

@@ -25,6 +25,8 @@ public class LesmaBarill : MonoBehaviour
     {
         Mover();
         GroundCheck();
+        Debug.DrawRay(transform.position, Vector2.left * 2.1f, Color.red);
+        PlayerCheck();
     }
     void Mover()
     {
@@ -37,13 +39,16 @@ public class LesmaBarill : MonoBehaviour
         }
     }
     public void Attack()
-    {   
-        rb.velocity = (Vector2.up * jumpForce);
+    {   if (isGrounded)
+        {
+            rb.velocity = (Vector2.up * jumpForce);
+            animator.Play("Attack");
+        }
+
     }
-    void OnCollisionEnter2D(Collision2D collision)
-    {    animator.Play("Attack");
-        if (collision.gameObject.CompareTag("Player")) Destroy(gameObject);
-        
+    void OnTriggerEnter2D(Collider2D collision)
+    {   
+        animator.Play("Attack");
     }
     private void GroundCheck()
     {
@@ -51,5 +56,12 @@ public class LesmaBarill : MonoBehaviour
         { isGrounded = true; }
         else
         { isGrounded = false; }
+    }
+    void PlayerCheck()
+    {
+        if (Physics2D.Raycast(transform.position, Vector2.left, 2.1f, LayerMask.GetMask("Player")))
+        {
+            Attack();
+        }
     }
 }

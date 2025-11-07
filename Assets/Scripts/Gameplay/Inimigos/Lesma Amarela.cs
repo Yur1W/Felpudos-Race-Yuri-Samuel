@@ -8,7 +8,8 @@ public class LesmaAmarela : MonoBehaviour
   [SerializeField]
   float timerDuration;
   float timer;
-  float velocidade = 4f;
+  [SerializeField]
+  float velocidade = 10f;
   float limiteDestruicaoX = -12f;
   bool jumpTime = true;
   Vector2 forcaImpulso = new Vector2(0, 580f);
@@ -58,8 +59,5 @@ public class LesmaAmarela : MonoBehaviour
 
     }
   }
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-    if (collision.gameObject.CompareTag("Player")) { Destroy(gameObject); }
-    }
+
 }

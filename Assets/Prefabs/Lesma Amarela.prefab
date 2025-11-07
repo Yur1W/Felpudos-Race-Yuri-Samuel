@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8284745724966476168}
   - component: {fileID: 3849209018980468244}
   - component: {fileID: 754402367984735370}
+  - component: {fileID: 8502305309965934369}
   - component: {fileID: 595545658702205129}
   m_Layer: 0
   m_Name: Lesma Amarela
@@ -122,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerDuration: 0
+  velocidade: 10
 --- !u!50 &754402367984735370
 Rigidbody2D:
   serializedVersion: 4
@@ -149,7 +151,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!68 &595545658702205129
+--- !u!68 &8502305309965934369
 EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,7 +184,62 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.4
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -3.4271266, y: -4.727417}
+  - {x: -3.4454608, y: -5.4671206}
+  - {x: -2.2142706, y: -5.686066}
+  - {x: 0.3254729, y: -5.0388994}
+  - {x: 1.2710377, y: -4.721696}
+  - {x: 1.9946322, y: -4.245713}
+  - {x: 2.502861, y: -2.6175637}
+  - {x: 2.8320394, y: 1.1549312}
+  - {x: 3.534748, y: 1.5533094}
+  - {x: 3.1901455, y: 5.757888}
+  - {x: -0.5296171, y: 6.020008}
+  - {x: -0.9121714, y: 0.5100996}
+  - {x: -0.3930571, y: -0.3460271}
+  - {x: -1.2471011, y: -1.7857658}
+  - {x: -1.4588884, y: -3.4902494}
+  - {x: -3.4089203, y: -4.7614274}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!68 &595545658702205129
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6645714796144313133}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0.03
   m_Points:
   - {x: 1.6434696, y: -2.3387315}
   - {x: 1.6065037, y: 0.93249553}
@@ -255,7 +312,7 @@ EdgeCollider2D:
   - {x: -2.0991435, y: -4.328999}
   - {x: -2.6231453, y: -4.708348}
   - {x: -2.8922412, y: -5.071819}
-  - {x: -2.7600324, y: -5.173225}
+  - {x: -2.8620634, y: -5.2412443}
   - {x: -1.9740863, y: -5.2606764}
   - {x: -1.7699009, y: -5.240388}
   - {x: -1.7104625, y: -5.1496716}

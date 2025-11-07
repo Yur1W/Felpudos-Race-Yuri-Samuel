@@ -17,6 +17,12 @@ public class Fofura : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            input = -1;
+            speed = 5f;
+            sprite.flipX = false;
+        }
     }
 
     // Update is called once per frame
@@ -24,10 +30,11 @@ public class Fofura : MonoBehaviour
     {
         rb.velocity = new Vector2(input * speed, rb.velocity.y);
 
-        if (transform.position.x > 10f)
+        if (transform.position.x > 50f)
         {
             Destroy(gameObject);
         }
+        
        
     }
     void OnCollisionEnter2D(Collision2D collision)
@@ -37,7 +44,14 @@ public class Fofura : MonoBehaviour
             anim.Play("Got");
             input = 1;
             sprite.flipX = true;
-            
+
+        }
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            input = 0;
         }
     }
 }

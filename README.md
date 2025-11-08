@@ -25,7 +25,7 @@ Under the blazing sun of the endless savanna, Felpudo and Fofura lived peacefull
 
 ## Links
 [Projeto no Play Unity](https://play.unity.com/en/games/97c5e4e5-0ee8-4ce3-a926-a34d7fbbc24c/webgl-builds)
-[Gameplay Video]()
+[Gameplay Video](https://youtu.be/ZF8qKYJVj3I)
 
 ## Colaborators
 [Samuel Figueredo](https://github.com/DjTarma)

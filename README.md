@@ -17,7 +17,7 @@ In this project the Unity Paralax System was implemented in 2 main ways:
 - Giving depth to the scenery and making it feel less stiff. 
 
 ## Game Scene Script
-.
+Under the blazing sun of the endless savanna, Felpudo and Fofura lived peacefully, until the day the cunning sorcerer Uruca emerged out of nowhere, snatching Fofura away and vanishing toward the distant iron towers of the big city. With his heart blazing, Felpudo left behind the gentle songs of the savanna and journeyed to the land of roaring machines and shimmering glass. There, he climbed into a misterious metal carriage, its wheels sparking with some sort of oil, and set off through the labyrinth of streets and shadows to bring Fofura back, no matter what enemies or danger stood in his way.
 
 ## References
 - [Paralax Tutorial](https://www.youtube.com/watch?v=AoRBZh6HvIk)
